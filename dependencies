@@ -1,0 +1,603 @@
+acl-2.3.2
+
+attr-2.5.2
+
+autoconf-2.72
+
+automake-1.18.1
+
+bash-5.3
+
+bc-7.0.3
+
+binutils-2.45
+
+bison-3.8.2
+
+bzip2-1.0.8
+
+cmake-4.1.0
+    opt
+        GCC-15.2.0 (for gfortran)
+        git-2.50.1 (for use during tests)
+        mercurial-7.1 (for use during tests)
+        OpenJDK-24.0.2 (for use during tests)
+        Qt-6.9.2 (for the Qt-based GUI)
+        sphinx-8.2.3 (for building documents)
+        Subversion-1.14.5 (for testing)
+        cppdap
+        jsoncpp
+        rhash
+    rec
+        cURL-8.15.0
+        libarchive-3.8.1
+        libuv-1.51.0
+        nghttp2-1.66.0 
+
+coreutils-9.7
+
+cracklib-2.10.3
+    rec
+        cracklib-words-2.10.3
+
+curl-8.15.0
+    req
+        libpsl-0.21.5
+    rec
+        make-ca-1.16.1
+    opt
+        Brotli-1.1.0
+        c-ares-1.34.5
+        GnuTLS-3.8.10
+        libidn2-2.3.8
+        libssh2-1.11.1
+        MIT Kerberos V5-1.22.1
+        nghttp2-1.66.0
+        OpenLDAP-2.6.10
+        Samba-4.22.4 (runtime, for NTLM authentication)
+        gsasl
+        impacket
+        libmetalink
+        librtmp
+        ngtcp2
+        quiche
+        SPNEGO
+        Apache-2.4.65 (for test suite)
+        stunnel-5.75 (for the HTTPS and FTPS tests)
+        OpenSSH-10.0p1 (for test suite)
+        Valgrind-3.25.1 (this will slow the tests down and may cause failures) 
+
+dbus-1.16.2
+    rec
+        @Xorg_Libs
+
+dejagnu-1.6.3
+
+diffutils-3.12
+
+dosfstools-4.2
+
+e2fsprogs-1.47.3
+
+efibootmgr-18
+    req
+         efivar-39
+         popt-1.19 
+
+efivar-39
+    opt
+        mandoc (for the man page of efisecdb)
+
+elfutils-0.193
+
+expat-2.7.3
+
+expect5.45.4
+
+file-5.46
+
+findutils-4.10.0
+
+flex-2.6.4
+
+flit_core-3.12.0
+    req
+        Python-3.13.7
+
+fuse-3.17.4
+    opt
+        Doxygen-1.14.0 (to rebuild the API documentation)
+        pytest-8.4.1 (required for tests)
+        looseversion (for tests) 
+
+gawk-5.3.2
+
+gcc-15.2.0
+    req
+        gmp-6.3.0 (May only be to build LFS cross compiler)
+        mpfr-4.2.2 (May only be to build LFS cross compiler)
+        mpc-1.3.1 (May only be to build LFS cross compiler)
+    rec
+        glibc-2.42
+
+gdbm-1.26
+
+gettext-0.26
+
+glibc-2.42
+
+gmp-6.3.0
+
+gperf-3.3
+        
+gptfdisk-1.0.10
+    req
+        popt-1.19
+    opt
+        ICU-77.1
+
+grep-3.12
+
+groff-1.23.0
+
+grub-2.12
+    ( ? )
+
+gzip-1.14
+
+inetutils-2.6
+
+intltool-0.51.0
+
+iproute2-6.16.0
+
+iptables-1.8.11
+    opt
+         libpcap-1.10.5 (required for BPF compiler or nfsynproxy support)
+         bpf-utils (required for Berkeley Packet Filter support)
+         libnfnetlink (required for connlabel support)
+         libnetfilter_conntrack (required for connlabel support)
+         nftables 
+
+jfsutils-1.1.15
+
+jinja2-3.1.6
+    req
+        Python-3.13.7
+
+kbd-2.8.0
+
+kmod-34.2
+    req
+        ninja-1.13.1
+        meson-1.8.3
+
+less-679
+
+libcap-2.76
+
+libffi-3.5.2
+
+libidn2-2.3.8
+    rec
+         libunistring-1.3
+    opt
+        git-2.50.1
+        GTK-Doc-1.34.0 
+
+libpipeline-1.5.8
+
+libpng-1.6.50
+
+libpsl-0.21.5
+    rec
+        libidn2-2.3.8 and libunistring-1.3
+    opt
+        GTK-Doc-1.34.0 (for documentation)
+        ICU-77.1 (may be used instead of libidn2)
+        libidn-1.43 (may be used instead of libidn2)
+        Valgrind-3.25.1 (for tests) 
+
+libpwquality-1.4.5
+    req
+        CrackLib-2.10.3
+    rec
+        Linux-PAM-1.7.1
+
+libqrencode-4.1.1
+    rec
+        libpng-1.6.50
+    opt
+        Doxygen-1.14.0 (for generating documentation)
+        SDL2-2.32.8 (for tests) 
+
+LibRaw-0.21.4
+    rec
+        libjpeg-turbo-3.0.1
+        jasper-4.2.8
+        Little CMS-2.17 
+
+libtool-2.5.4
+
+libunistring-1.3
+    opt
+         texlive-20250308 (to rebuild the documentation)
+
+libusb-1.0.29
+    opt
+        Doxygen-1.14.0
+
+libxcrypt-4.4.38
+
+linux-6.16.1
+    ( ? )
+
+Linux-PAM-1.7.1
+    opt
+        libnsl-2.0.1
+        libtirpc-1.3.6
+        rpcsvc-proto-1.4.4
+        libaudit
+        libeconf 
+        docbook-xml-5.0
+        docbook-xsl-ns-1.79.2
+        fop-2.11 (for the PDF format)
+        libxslt-1.1.43
+        Lynx-2.9.2 (for the plain text format)         
+
+lz4-1.10.0
+
+m4-1.4.20
+
+make-4.4.1
+
+man-db-2.13.1
+
+man-pages-6.15
+
+markupsafe-3.0.2
+    req
+        Python-3.13.7
+
+meson-1.8.3
+    req
+        Python-3.13.7
+
+mpc-1.3.1
+
+mpfr-4.2.2
+
+nano-8.6
+
+ncurses-6.5-20250809
+
+ninja-1.13.1
+    req
+        Python-3.13.7
+
+openssh-10.0p1
+    opt
+        GDB-16.3 (for tests)
+        Linux-PAM-1.7.1 (PAM configuration files from Shadow-4.18.0 are used to create openssh ones)
+        (Xorg Applications or Xorg build environment, see Command Explanations)
+        (MIT Kerberos V5-1.22.1)
+        Which-2.23 (for tests)
+        libedit
+        LibreSSL (Portable)
+        OpenSC
+        libsectok 
+        Net-tools-2.10 (runtime, entropy gathering)
+        Sysstat-12.7.8 (runtime, entropy gathering)
+
+openssl-3.6.0
+
+packaging-25.0
+    req
+        Python-3.13.7
+
+patch-2.8
+
+perl-5.42.0
+
+pkgconf-2.5.1
+
+popt-1.19
+    opt
+        Doxygen-1.14.0 (for generating documentation) 
+
+procps-ng-4.0.5
+
+psmisc-23.7
+
+Python-3.13.7
+
+qemu-10.0.3
+    req
+        GLib-2.84.4
+        Pixman-0.46.4 
+    rec
+         alsa-lib-1.2.14
+         dtc-1.7.2
+         libslirp-4.9.1
+         SDL2-2.32.8
+
+readline-8.3
+
+sed-4.9
+
+setuptools-80.9.0
+    req
+        Python-3.13.7
+
+shadow-4.18.0
+
+sudo-1.9.17p2
+    opt
+         Linux-PAM-1.7.1
+         MIT Kerberos V5-1.22.1
+         OpenLDAP-2.6.10
+         (MTA - that provides a sendmail command)
+         AFS
+         libaudit
+         Opie
+         Sssd 
+
+sysklogd-2.7.2
+    
+systemd-257.8
+    req
+        ninja-1.13.1
+
+sysvinit-3.14
+
+tar-1.35
+
+tcl8.6.16-src
+
+texinfo-7.2
+
+udev-lfs-20230818
+
+util-linux-2.41.1
+
+vim-9.1.1629
+
+wheel-0.46.1
+    req
+        Python-3.13.7
+
+XML-Parser-2.47
+    req
+        perl-5.42.0
+
+xz-5.8.1
+
+zlib-1.3.1
+
+zstd-1.5.7
+
+Fontconfig-2.17.1
+    req
+        FreeType-2.13.3
+    opt
+        bubblewrap-0.11.0 (used by some tests)
+        cURL-8.15.0  (used by some tests for downloading and extracting test files)
+        libarchive-3.8.1 (used by some tests for downloading and extracting test files)
+        JSON-C-0.18
+        DocBook-utils-0.6.14 & libxml2-2.14.5
+        texlive-20250308 & install-tl-unx
+libxcb-1.17.0
+    req
+        libXau-1.0.12
+        xcb-proto-1.17.0 
+    rec
+        libXdmcp-1.1.5 (required for Mesa-25.1.8) 
+    opt
+        Doxygen-1.14.0 (to generate API documentation)
+        libxslt-1.1.43 
+FreeType-2.13.3
+    opt
+        Brotli-1.1.0
+        librsvg-2.61.0 
+        docwriter
+    rec
+        harfBuzz-11.4.1 (circular: build freetype, then harfbuzz, then reinstall freetype)
+        libpng-1.6.50
+        Which-2.23
+pango-1.56.4
+    req
+        Fontconfig-2.17.1 (must be built with FreeType-2.13.3 using harfBuzz-11.4.1)
+        FriBidi-1.0.16
+        GLib-2.84.4 (GObject Introspection required for GNOME)
+    rec
+        Cairo-1.18.4 (built after harfBuzz-11.4.1)
+        @Xorg_Libs
+    opt
+        Gi-DocGen-2025.4 (to generate documentation)
+        help2man
+        libthai
+        sysprof 
+harfBuzz-11.4.1
+    rec
+        GLib-2.84.4 (required for Pango; GObject Introspection required for building GNOME)
+        Graphite2-1.3.14 (required for building texlive-20250308 or LibreOffice-25.8.1.1 with system harfbuzz)
+        ICU-77.1
+        FreeType-2.13.3 (after harfbuzz is installed, reinstall freetype) 
+    opt
+        Cairo-1.18.4 (circular: build cairo and all its recommended dependencies, including harfbuzz, first, then rebuild harfbuzz if the cairo backend is needed)
+        git-2.50.1
+        GTK-Doc-1.34.0
+        FontTools (Python 3 module, for the test suite)
+        ragel
+        wasm-micro-runtime 
+graphite2-1.3.14
+    req
+        CMake-4.1.0
+    opt
+        FreeType-2.13.3
+        silgraphite (to build the comparerender test and benchmarking tool)
+        harfBuzz-11.4.1 (to add more functionality to it - this is a circular dependency, you would need to first build graphite2 without harfbuzz)
+        asciidoc-10.2.1 (To build the documentation)
+        Doxygen-1.14.0
+        texlive-20250308 (or install-tl-unx)
+        dblatex (for PDF docs)
+        FontTools (Python 3 module, to execute the test suite, otherwise, the "cmp" tests fail)
+        (You will need at least one suitable graphite font for the package to be useful)
+glib-2.84.4
+    rec
+        gobject-introspection-1.84.0
+        docutils-0.21.2
+        libxslt-1.1.43
+        pcre2-10.45 (a copy will be downloaded from the internet if it is not installed) 
+    opt
+        Cairo-1.18.4 (for some GObject Introspection tests)
+        dbus-1.16.2 (for some tests)
+        Fuse-3.17.4 & bindfs (both needed for one test)
+        GDB-16.3 (for bindings)
+        Gjs-1.84.2 (for some GObject Introspection tests)
+        GTK-Doc-1.34.0 (for GObject Introspection documentation)
+        docbook-xml-4.5
+        docbook-xsl-nons-1.79.2
+        Gi-DocGen-2025.4 (to build API documentation)
+        glib-networking-2.80.1 (for some tests, but this is a circular dependency)
+        Mako-1.3.10 & Markdown-3.8.2 (both for g-ir-doc-tool)
+        sysprof 
+        shared-mime-info-2.4 & desktop-file-utils-0.28 (Needed for some tests)
+icu-77.1
+    opt
+        Doxygen-1.14.0
+fribidi-1.0.16
+    opt
+        c2man-2.0 (To build man pages)
+gdk-pixbuf-2.42.12 
+    req
+        GLib-2.84.4 (GObject Introspection required for GNOME)
+        libjpeg-turbo-3.0.1
+        libpng-1.6.50
+        shared-mime-info-2.4
+    rec
+        docutils-0.21.2
+        librsvg-2.61.0 (runtime dependency, needed for loading symbolic icons)
+        libtiff-4.7.0 
+    opt
+        Gi-DocGen-2025.4 (to generate documentation)
+        libavif-1.3.0 (runtime dependency, needed for loading AVIF images)
+        libjxl-0.11.1 (runtime dependency, needed for loading JPEG XL images)
+        webp-pixbuf-loader-0.2.7 (runtime dependency, needed for loading WebP images) 
+rustc-1.89.0
+    req
+         CMake-4.1.0
+         cURL-8.15.0
+    rec
+        libssh2-1.11.1
+        LLVM-20.1.8 (built with -D LLVM_LINK_LLVM_DYLIB=ON so that rust can link to system LLVM instead of building its shipped version)
+        SQLite-3.50.4
+    opt
+        GDB-16.3 (used by the test suite if it is present)
+        git-2.50.1 (required by the test suite)
+        cranelift
+        jemalloc
+        libgccjit (read command explanation in GCC-15.2.0)
+        libgit2 
+cargo-c
+    req
+        rustc-1.89.0
+    rec
+        libssh2-1.11.1
+        SQLite-3.50.4
+pixman-0.46.4
+    opt
+        libpng-1.6.50 & GTK-3.24.50 (for tests and demos) 
+cairo-1.18.4
+    req
+        libpng-1.6.50
+        Pixman-0.46.4
+        (There is a circular dependency between cairo and harfbuzz. If cairo is built before harfbuzz, it is necessary to rebuild cairo after harfbuzz in order to build pango)
+    rec
+        Fontconfig-2.17.1
+        GLib-2.84.4 (required for most GUIs)
+        @Xorg_Libs
+    opt
+        ghostscript-10.05.1
+        GTK-Doc-1.34.0
+        libdrm-2.4.125
+        librsvg-2.61.0
+        libxml2-2.14.5
+        LZO-2.10
+        Poppler-25.08.0
+        Valgrind-3.25.1
+        GTK+-2
+        libspectre 
+librsvg-2.61.0
+    req
+        Cairo-1.18.4
+        cargo-c-0.10.15
+        gdk-pixbuf-2.42.12
+        Pango-1.56.4
+    rec
+        GLib-2.84.4 (with GObject Introspection)
+        Vala-0.56.18 
+    opt
+        docutils-0.21.2 (for man pages)
+        Gi-DocGen-2025.4 (for documentation)
+        @Xorg_Fonts (for tests) 
+
+[Xorg_Libs]
+    inc
+        xtrans-1.6.0
+        libX11-1.8.12
+        libXext-1.3.6
+        libFS-1.0.10
+        libICE-1.1.2
+        libSM-1.2.6
+        libXScrnSaver-1.2.4
+        libXt-1.3.1
+        libXmu-1.2.1
+        libXpm-3.5.17
+        libXaw-1.0.16
+        libXfixes-6.0.1
+        libXcomposite-0.4.6
+        libXrender-0.9.12
+        libXcursor-1.2.3
+        libXdamage-1.1.6
+        libfontenc-1.1.8
+        libXfont2-2.0.7
+        libXft-2.3.9
+        libXi-1.8.2
+        libXinerama-1.1.5
+        libXrandr-1.5.4
+        libXres-1.2.2
+        libXtst-1.2.5
+        libXv-1.0.13
+        libXvMC-1.0.14
+        libXxf86dga-1.1.6
+        libXxf86vm-1.1.6
+        libpciaccess-0.18.1
+        libxkbfile-1.1.3
+        libxshmfence-1.3.3
+        libXpresent-1.0.1
+    req
+        Fontconfig-2.17.1
+        libxcb-1.17.0
+    opt
+        asciidoc-10.2.1
+        xmlto-0.0.29
+        fop-2.11
+        Links-2.30
+        Lynx-2.9.2
+        ncompress (for some tests)
+        W3m (to generate additional PDF or text documentation for the libXfont package).
+
+[Xorg_Fonts]
+    inc
+        font-util-1.4.1
+        encodings-1.1.0
+        font-alias-1.0.5
+        font-adobe-utopia-type1-1.0.5
+        font-bh-ttf-1.0.4
+        font-bh-type1-1.0.4
+        font-ibm-type1-1.0.4
+        font-misc-ethiopic-1.0.5
+        font-xfree86-type1-1.0.5
+    req
+        xcursor-themes-1.0.7
