@@ -46,7 +46,7 @@ exec_with_check "mkdir -p \"$LFS/$PACKAGE_DIR/flags\"" "Error creating package f
 exec_with_check "chmod -v 755 \"$LFS/$TOOL_DIR\"" "Error changing \$LFS/build-lfs/build-tool permissions"
 exec_with_check "chmod -v 755 \"$LFS/$PACKAGE_DIR\"" "Error changing \$LFS/build-lfs/build-package permissions"
 exec_with_check "chmod -v 1777 \"$LFS/$TOOL_DIR/flags\"" "Error changing \$LFS/build-lfs/build-tool/flags permissions"
-exec_with_check "chmod -v 1777 \"$LFS/$PACKAGE_DIR\"" "Error changing \$LFS/build-lfs/build-package/flags permissions"
+exec_with_check "chmod -v 1777 \"$LFS/$PACKAGE_DIR/flags\"" "Error changing \$LFS/build-lfs/build-package/flags permissions"
 exec_with_check "chmod -v 1777 \"$LFS/sources\"" "Error changing \$LFS/sources permissions"
 
 # Ensure the group lfs exists
@@ -73,14 +73,6 @@ if ! id -u lfs > /dev/null 2>&1; then
 
 else
     echo_pass "User lfs already exists, skipping user creation."
-fi
-
-# Add lfs to sudoers with NOPASSWD
-if ! grep -q "^lfs ALL=(ALL) NOPASSWD: ALL" /etc/sudoers; then
-    echo "lfs ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-    echo_pass "Added user lfs to sudoers with NOPASSWD"
-else
-    echo_pass "User lfs already in sudoers, skipping."
 fi
 
 LFS_HOME=$(getent passwd lfs | cut -d: -f6)
@@ -250,17 +242,6 @@ else
     echo_pass "/etc/bash.bashrc does not exist. Skipped temporary renaming."
 fi
 
-
-
-
-
-
-
-
-
-
-
-
 #Restore the original /etc/bash.bashrc if it was moved
 #if [ -e /etc/bash.bashrc.NOUSE ]; then
 #    mv -v /etc/bash.bashrc.NOUSE /etc/bash.bashrc || echo_fail "Error restoring /etc/bash.bashrc"
@@ -269,5 +250,7 @@ fi
 #fi
 
 popd || { echo_fail "Error returning to initial directory" && exit 1; }
+
+exec_with_check "chown lfs:lfs \"$LFS\"" "Error changing \$LFS ownership to 'lfs'"
 
 echo_warn "\n\n\nAll done! Switch to user 'lfs' with 'su - lfs' and run\nthe next script to build the cross-toolchain"

@@ -6,7 +6,7 @@ Usage:
 
 1. Set up partition, filesystem, users and environments according to LFS 12.4 instructions.
 2. Check out build-lfs to your $LFS root.
-3. As root, execute 00-start-lfs-systemd.sh
+3. As root, execute $LFS/build-lfs/00-start-lfs-systemd.sh
 4. Upon success, follow the insctuctions to proceed with the next script.
 
 Some of the first tasks of the script are to fetch wget-list-systemd and md5sums from the LFS project URLs. Existing files will not be overwritten by default, so modifications to these files will be preserved. In this way, your build may be customized.

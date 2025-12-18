@@ -5,9 +5,6 @@ RESULT=1
 
 build_unit_header "$ARCHIVE" 1
 
-# Temporarily grant write permission recursively for $LFS/usr/
-sudo chmod -Rv 777 $LFS/usr > /dev/null 2>&1 || { echo_fail "Failed to change permissions for $LFS/usr" && exit 1; }
-
 pushd .. || { echo_fail "Failed to return to parent directory." && exit 1; }
 
 exec_with_check "tar -xf ../mpfr-4.2.2.tar.xz" "Failed to extract mpfr-4.2.2.tar.xz"
@@ -58,9 +55,6 @@ make DESTDIR=$LFS install || { echo_fail "Make install failed." && exit 1; }
 
 # Post installation tasks
 ln -sv gcc $LFS/usr/bin/cc || { echo_fail "Failed to create gcc symlink." && exit 1; }
-
-# Restore permissions recursively for $LFS/usr
-sudo chmod -Rv 755 $LFS/usr > /dev/null 2>&1 || { echo_fail "Failed to restore permissions for $LFS/usr" && exit 1; }
 
 build_unit_footer "$ARCHIVE"
 

@@ -5,9 +5,6 @@ RESULT=1
 
 build_unit_header "$ARCHIVE" 0
 
-# Temporarily grant write permission recursively for $LFS/usr/
-sudo chmod -Rv 777 $LFS/usr > /dev/null 2>&1 || { echo_fail "Failed to change permissions for $LFS/usr" && exit 1; }
-
 # Build and install tic first
 mkdir build || { echo_fail "Failed to create build directory." && exit 1; }
 pushd build || { echo_fail "Failed to enter build directory." && exit 1; }
@@ -38,9 +35,6 @@ make DESTDIR=$LFS install || { echo_fail "Make install failed." && exit 1; }
 ln -sv libncursesw.so $LFS/usr/lib/libncurses.so || { echo_fail "Creating libncurses.so symlink failed." && exit 1; }
 
 sed -e 's/^#if.*XOPEN.*$/#if 1/' -i $LFS/usr/include/curses.h || { echo_fail "Patching curses.h failed." && exit 1; }
-
-# Restore permissions recursively for $LFS/usr
-sudo chmod -Rv 755 $LFS/usr > /dev/null 2>&1 || { echo_fail "Failed to restore permissions for $LFS/usr" && exit 1; }
 
 build_unit_footer "$ARCHIVE"
 

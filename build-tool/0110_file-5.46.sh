@@ -5,9 +5,6 @@ RESULT=1
 
 build_unit_header "$ARCHIVE" 0
 
-# Temporarily grant write permission recursively for $LFS/usr/
-sudo chmod -Rv 777 $LFS/usr > /dev/null 2>&1 || { echo_fail "Failed to change permissions for $LFS/usr" && exit 1; }
-
 mkdir build || { echo_fail "Failed to create build directory." && exit 1; }
 pushd build || { echo_fail "Failed to enter build directory." && exit 1; }
   ../configure --disable-bzlib      \
@@ -25,9 +22,6 @@ make FILE_COMPILE=$(pwd)/build/src/file || { echo_fail "Make failed." && exit 1;
 make DESTDIR=$LFS install || { echo_fail "Make install failed." && exit 1; }
 
 rm -v $LFS/usr/lib/libmagic.la || { echo_fail "Failed to remove libmagic.la" && exit 1; }
-
-# Restore permissions recursively for $LFS/usr
-sudo chmod -Rv 755 $LFS/usr > /dev/null 2>&1 || { echo_fail "Failed to restore permissions for $LFS/usr" && exit 1; }
 
 build_unit_footer "$ARCHIVE"
 
