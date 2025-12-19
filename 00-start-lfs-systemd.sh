@@ -117,13 +117,13 @@ downloads_failed=false
 
 # Patch downloaded lists with updated versions from security advisories
 sed -i "s|https://github.com/libexpat/libexpat/releases/download/R_2_7_1/expat-2.7.1.tar.xz|https://github.com/libexpat/libexpat/releases/download/R_2_7_3/expat-2.7.3.tar.gz|" wget-list-systemd \
-    || step_fail "Failed to patch wget-lists-systemd expat-2.7.1 --> expat-2.7.3"
+    || step_fail "Failed to patch wget-list-systemd expat-2.7.1 --> expat-2.7.3"
 
-sed -i "s|9f0c266ff4b9720beae0c6bd53ae4469[[:space:]]\+expat-2.7.1.tar.xz|afaadf14531cfa425e06c5513072633d  expat-2.7.3.tar.gz|" md5sums
+sed -i "s|9f0c266ff4b9720beae0c6bd53ae4469[[:space:]]\+expat-2.7.1.tar.xz|afaadf14531cfa425e06c5513072633d  expat-2.7.3.tar.gz|" md5sums \
     || step_fail "Failed to patch md5sums expat-2.7.1 --> expat-2.7.3"
 
 sed -i "s|https://github.com/openssl/openssl/releases/download/openssl-3.5.2/openssl-3.5.2.tar.gz|https://github.com/openssl/openssl/releases/download/openssl-3.6.0/openssl-3.6.0.tar.gz|" wget-list-systemd \
-    || step_fail "Failed to patch wget-lists-systemd openssl-3.5.2 --> openssl-3.6.0"
+    || step_fail "Failed to patch wget-list-systemd openssl-3.5.2 --> openssl-3.6.0"
 
 sed -i "s|890fc59f86fc21b5e4d1c031a698dbde[[:space:]]\+openssl-3.5.2.tar.gz|77ab78417082f22a2ce809898bd44da0  openssl-3.6.0.tar.gz|" md5sums \
     || step_fail "Failed to patch md5sums openssl-3.5.2 --> openssl-3.6.0"
