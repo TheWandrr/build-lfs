@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#STEP=100
-
 # Check if LFS is set; if not, assign the default value
 if [ -z "$LFS" ]; then
     echo "Setting LFS to default: '/mnt/lfs'"
