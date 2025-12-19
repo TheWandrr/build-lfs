@@ -4,6 +4,14 @@
 
 If you find this project useful or would like to contribute, please let me know!
 
+At last update, everything up to the beginning of chapter 7 should have been completed automatically.
+
+From here, things will need to be done following the book instructions:
+
+https://www.linuxfromscratch.org/lfs/view/stable-systemd/chapter07/chapter07.html
+
+If this is your first time with Linux from Scratch, I highly recommend spending the time to go through the instructions manually at least one time, if not more!
+
 ### Usage Instructions
 
 1. **Set Up Your Environment**:
