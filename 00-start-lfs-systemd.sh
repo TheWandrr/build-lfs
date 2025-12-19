@@ -1,6 +1,6 @@
 #!/bin/bash
 
-STEP=1
+#STEP=1
 
 # Check if LFS is set; if not, assign the default value
 if [ -z "$LFS" ]; then

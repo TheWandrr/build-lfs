@@ -8,6 +8,8 @@ WGET_LIST_FILE_NAME="wget-list-systemd"
 MD5_SUMS_FILE_NAME="md5sums"
 BASE_URL="https://www.linuxfromscratch.org/lfs/view/stable-systemd"
 
+STEP=1
+
 NC='\033[0m' # No Color
 RED='\033[0;31m'
 GREEN='\033[0;32m'
