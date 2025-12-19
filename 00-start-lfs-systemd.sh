@@ -67,7 +67,7 @@ if ! id -u lfs > /dev/null 2>&1; then
 
     # Set password only if the user exists
     if id -u lfs > /dev/null 2>&1; then
-        echo "lfs:$USER_LFS_PASSWORD" | chpasswd || echo_fail "Error setting password for user lfs"
+        echo "lfs:$USER_LFS_PASSWORD" | chpasswd || { echo_fail "Error setting password for user lfs" && exit 1; }
         echo_warn "Password for user lfs: $USER_LFS_PASSWORD"   
     else
         echo_warn "User lfs not found; cannot set password."

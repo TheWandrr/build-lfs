@@ -32,27 +32,27 @@ if [[ ! "$REPLY" =~ ^[Yy]$ ]]; then
 fi
 
 # 7.2
-chown --from lfs -R root:root $LFS/{usr,var,etc,tools} || { echo_fail "Failed to set directory ownership to user lfs"; && exit 1; }
+chown --from lfs -R root:root $LFS/{usr,var,etc,tools} || { echo_fail "Failed to set directory ownership to user lfs" && exit 1; }
 case $(uname -m) in
   x86_64) chown --from lfs -R root:root $LFS/lib64 ;;
-esac || { echo_fail "Failed to set directory ownership to user lfs"; && exit 1; }
+esac || { echo_fail "Failed to set directory ownership to user lfs" && exit 1; }
 
 # 7.3
-mkdir -pv $LFS/{dev,proc,sys,run} || { echo_fail "Failed to create virtual file system directories"; && exit 1; }
+mkdir -pv $LFS/{dev,proc,sys,run} || { echo_fail "Failed to create virtual file system directories" && exit 1; }
 
 # 7.3.1
-mount -v --bind /dev $LFS/dev || { echo_fail "Failed to create \$LFS/dev directory"; && exit 1; }
+mount -v --bind /dev $LFS/dev || { echo_fail "Failed to create \$LFS/dev directory" && exit 1; }
 
 # 7.3.2
-mount -vt devpts devpts -o gid=5,mode=0620 $LFS/dev/pts || { echo_fail "Failed mounting virtual /dev/pts"; && exit 1;}
-mount -vt proc proc $LFS/proc || { echo_fail "Failed mounting virtual /proc"; && exit 1;}
-mount -vt sysfs sysfs $LFS/sys || { echo_fail "Failed mounting virtual /sys"; && exit 1;}
-mount -vt tmpfs tmpfs $LFS/run || { echo_fail "Failed mounting virtual /run"; && exit 1;}
+mount -vt devpts devpts -o gid=5,mode=0620 $LFS/dev/pts || { echo_fail "Failed mounting virtual /dev/pts" && exit 1; }
+mount -vt proc proc $LFS/proc || { echo_fail "Failed mounting virtual /proc" && exit 1; }
+mount -vt sysfs sysfs $LFS/sys || { echo_fail "Failed mounting virtual /sys" && exit 1; }
+mount -vt tmpfs tmpfs $LFS/run || { echo_fail "Failed mounting virtual /run" && exit 1; }
 
 if [ -h $LFS/dev/shm ]; then
-  install -v -d -m 1777 $LFS$(realpath /dev/shm) || { echo_fail "Failed creating /run/shm"; && exit 1;}
+  install -v -d -m 1777 $LFS$(realpath /dev/shm) || { echo_fail "Failed creating /run/shm" && exit 1; }
 else
-  mount -vt tmpfs -o nosuid,nodev tmpfs $LFS/dev/shm || { echo_fail "Failed mounting temp /run/shm"; && exit 1;}
+  mount -vt tmpfs -o nosuid,nodev tmpfs $LFS/dev/shm || { echo_fail "Failed mounting temp /run/shm" && exit 1; }
 fi
 
 echo_warn "\n\n\nAll done!"
@@ -67,4 +67,5 @@ chroot "$LFS" /usr/bin/env -i   \
     PATH=/usr/bin:/usr/sbin     \
     MAKEFLAGS="-j$(nproc)"      \
     TESTSUITEFLAGS="-j$(nproc)" \
-    /bin/bash --login
+    /bin/bash --login           \
+    || { echo_fail "Failed to enter chroot environment" && exit 1; }
