@@ -38,12 +38,15 @@ exec_with_check "chown root:root \"$LFS\"" "Error changing \$LFS ownership"
 exec_with_check "chmod 755 \"$LFS\"" "Error changing \$LFS permissions"
 
 exec_with_check "mkdir -p \"$LFS/sources\"" "Error creating \$LFS/sources"
-exec_with_check "mkdir -p \"$LFS/$TOOL_DIR/flags\"" "Error creating tool flag directory"
+exec_with_check "mkdir -p \"$LFS/$TOOL_DIR_1/flags\"" "Error creating tool flag directory"
+exec_with_check "mkdir -p \"$LFS/$TOOL_DIR_2/flags\"" "Error creating tool flag directory"
 exec_with_check "mkdir -p \"$LFS/$PACKAGE_DIR/flags\"" "Error creating package flag directory"
 
-exec_with_check "chmod -v 755 \"$LFS/$TOOL_DIR\"" "Error changing \$LFS/build-lfs/build-tool permissions"
+exec_with_check "chmod -v 755 \"$LFS/$TOOL_DIR_1\"" "Error changing \$LFS/build-lfs/build-tool permissions"
+exec_with_check "chmod -v 755 \"$LFS/$TOOL_DIR_2\"" "Error changing \$LFS/build-lfs/build-tool permissions"
 exec_with_check "chmod -v 755 \"$LFS/$PACKAGE_DIR\"" "Error changing \$LFS/build-lfs/build-package permissions"
-exec_with_check "chmod -v 1777 \"$LFS/$TOOL_DIR/flags\"" "Error changing \$LFS/build-lfs/build-tool/flags permissions"
+exec_with_check "chmod -v 1777 \"$LFS/$TOOL_DIR_1/flags\"" "Error changing \$LFS/build-lfs/build-tool/flags permissions"
+exec_with_check "chmod -v 1777 \"$LFS/$TOOL_DIR_2/flags\"" "Error changing \$LFS/build-lfs/build-tool/flags permissions"
 exec_with_check "chmod -v 1777 \"$LFS/$PACKAGE_DIR/flags\"" "Error changing \$LFS/build-lfs/build-package/flags permissions"
 exec_with_check "chmod -v 1777 \"$LFS/sources\"" "Error changing \$LFS/sources permissions"
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#STEP=6
+#STEP=100
 
 # Check if LFS is set; if not, assign the default value
 if [ -z "$LFS" ]; then
@@ -12,9 +12,8 @@ fi
 
 source "$LFS/build-lfs/shared-lfs-utils.sh"
 
-if [ "$(id -un)" != "lfs" ]; then
-    echo_fail "Error: This script must be run as user 'lfs'."
-    echo_fail "Run 'su - lfs' to switch to the 'lfs' user then re-run this script."
+if [[ $EUID -ne 0 ]]; then
+    echo_fail "Error: This script must be run as root."
     exit 1
 fi
 
@@ -34,6 +33,6 @@ if [[ ! "$REPLY" =~ ^[Yy]$ ]]; then
     exit 1
 fi
 
-build_packages "$TOOL_DIR_1"
+build_packages "$TOOL_DIR_2"
 
 echo_warn "\n\n\nAll done!"
