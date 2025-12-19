@@ -62,7 +62,10 @@ if ! id -u lfs > /dev/null 2>&1; then
     exec_with_check "useradd -s /bin/bash -g lfs -m -k /dev/null lfs" "Error creating user lfs"
 
     # Create random password for user lfs
-    USER_LFS_PASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | head -c 12)
+    #USER_LFS_PASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | head -c 12)
+
+    # Create easy password for user lfs
+    USER_LFS_PASSWORD="lfs"
 
     # Set password only if the user exists
     if id -u lfs > /dev/null 2>&1; then
