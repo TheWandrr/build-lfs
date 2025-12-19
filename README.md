@@ -1,26 +1,42 @@
-Early development stages, limited testing.
+## Project Overview
 
-If you want to help or have found any of this useful, let me know.
+**Early development stages, limited testing.**
 
-Usage:
+If you find this project useful or would like to contribute, please let me know!
 
-1. Set up partition, filesystem, users and environments according to LFS 12.4 instructions.
-2. Perform the following commands, or equivalent
+### Usage Instructions
 
-    > sudo -i
-    > cd $LFS
-    > git clone https://github.com/TheWandrr/build-lfs.git
-    > $LFS/build-lfs/00-start-lfs-systemd.sh
-    
-3. Upon success, follow the instructions to proceed with the next script.
+1. **Set Up Your Environment**:
+   - Configure your partition, filesystem, users, and environments according to the LFS 12.4 instructions.
 
-Some of the first tasks of the script are to fetch wget-list-systemd and md5sums from the LFS project URLs. Existing files will not be overwritten by default, so modifications to these files will be preserved. In this way, your build may be customized.
+2. **Execute the Following Commands**:
 
-If any step fails, read the messages and try to fix the problem. Run the script again. Previously successful steps should be skipped. To force successful steps to be run again, delete the associated file in build-lfs/build-___/flags. Especially for the early stages, it is likely necessary that the build order be preserved, as there are dependencies that must be satisfied. This becomes less of an issue as more steps are completed.
+    ```bash
+    sudo -i
+    cd $LFS
+    git clone https://github.com/TheWandrr/build-lfs.git
+    LFS/build-lfs/00-start-lfs-systemd.sh
+    ```
 
-Adding/modifying source packages:
+3. **Continue After Success**:
+   - Upon successful execution, follow the instructions to proceed with the next script.
 
-1. Add the source URL to sources/wget-list-systemd
-2. Add a line with a trusted MD5 checksum and file name to sources/md5sums
-3. Add a build script to build-lfs/built-tool or build-lfs/build-package using existing examples for any naming requirements or conventions
+### Important Notes
 
+- The initial tasks of the script include fetching `wget-list-systemd` and `md5sums` from the LFS project URLs. Existing files will not be overwritten by default, allowing your modifications to be preserved. This enables customization of your build.
+  
+- If any step fails, carefully read the output messages and attempt to resolve the issue. Rerun the script afterward; previously successful steps will be skipped. 
+    - To force a re-execution of successful steps, delete the associated file in `build-lfs/build-___/flags`. 
+
+- Maintaining the correct build order is crucial during the early stages, as there are dependencies that must be satisfied. This concern diminishes as you complete more steps.
+
+### Adding or Modifying Source Packages
+
+1. **Update Source URL**:
+   - Add the new source URL to `sources/wget-list-systemd`.
+
+2. **Add MD5 Checksum**:
+   - Include a line with a trusted MD5 checksum and filename to `sources/md5sums`.
+
+3. **Create a Build Script**:
+   - Write a build script in `build-lfs/built-tool` or `build-lfs/build-package`, using existing examples to adhere to naming requirements and conventions.
