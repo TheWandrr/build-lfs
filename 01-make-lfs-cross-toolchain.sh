@@ -2,22 +2,20 @@
 
 STEP=6
 
-#SCRIPT_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
-#source "$SCRIPT_DIR/shared-lfs-utils.sh"
+# Check if LFS is set; if not, assign the default value
+if [ -z "$LFS" ]; then
+    echo "Setting LFS to default: '/mnt/lfs'"
+    LFS='/mnt/lfs'
+else
+    echo "Using LFS root: \"$LFS\""
+fi
+
 source "$LFS/build-lfs/shared-lfs-utils.sh"
 
 if [ "$(id -un)" != "lfs" ]; then
     echo_fail "Error: This script must be run as user 'lfs'."
     echo_fail "Run 'su - lfs' to switch to the 'lfs' user then re-run this script."
     exit 1
-fi
-
-# Check if LFS is set; if not, assign the default value
-if [ -z "$LFS" ]; then
-    echo "Setting LFS to default: '/mnt/lfs'"
-    LFS='/mnt/lfs'
-else
-    echo_warn "Using LFS root: \"$LFS\""
 fi
 
 echo_warn "*************************************************"

@@ -2,21 +2,19 @@
 
 STEP=1
 
-#SCRIPT_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
-#source "$SCRIPT_DIR/shared-lfs-utils.sh"
-source "$LFS/build-lfs/shared-lfs-utils.sh"
-
-if [[ $EUID -ne 0 ]]; then
-    echo_fail "Error: This script must be run as root."
-    exit 1
-fi
-
 # Check if LFS is set; if not, assign the default value
 if [ -z "$LFS" ]; then
     echo "Setting LFS to default: '/mnt/lfs'"
     LFS='/mnt/lfs'
 else
-    echo_warn "Using LFS root: \"$LFS\""
+    echo "Using LFS root: \"$LFS\""
+fi
+
+source "$LFS/build-lfs/shared-lfs-utils.sh"
+
+if [[ $EUID -ne 0 ]]; then
+    echo_fail "Error: This script must be run as root."
+    exit 1
 fi
 
 # Continue with the rest of the script
