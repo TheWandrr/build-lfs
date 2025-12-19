@@ -251,6 +251,6 @@ fi
 
 popd || { echo_fail "Error returning to initial directory" && exit 1; }
 
-exec_with_check "chown lfs:lfs \"$LFS\"" "Error changing \$LFS ownership to 'lfs'"
+exec_with_check "chown -R lfs:lfs \"$LFS\"" "Error changing \$LFS ownership to 'lfs'"
 
 echo_warn "\n\n\nAll done! Switch to user 'lfs' with 'su - lfs' and run\nthe next script to build the cross-toolchain"
